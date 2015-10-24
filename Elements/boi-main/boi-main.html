@@ -1,0 +1,52 @@
+﻿<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+<link rel="import" href="../../bower_components/neon-animation/neon-animatable-behavior.html">
+<link rel="import" href="../../bower_components/neon-animation/neon-animation-runner-behavior.html">
+
+<dom-module id="boi-main">
+    <style>
+        :host {
+            visibility: hidden;
+            @apply(--layout-vertical);
+        }
+
+    </style>
+    <template>
+        <content></content>
+    </template>
+</dom-module>
+<script>
+
+Polymer({
+
+  is: 'boi-main',
+
+  behaviors: [
+    Polymer.NeonAnimatableBehavior,
+    Polymer.NeonAnimationRunnerBehavior
+  ],
+
+  properties: {
+
+    animationConfig: {
+      type: Object,
+      value: function() {
+        return {
+          'entry': [{
+            name: 'fade-in-animation',
+            node: this
+          }]
+        };
+      }
+    }
+
+  },
+
+  show: function() {
+    this.style.visibility = 'visible';
+    this.playAnimation('entry');
+  }
+
+});
+
+</script>

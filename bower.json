@@ -1,0 +1,24 @@
+{
+  "name": "Board of Investment",
+  "version": "0.0.0",
+  "authors": [
+    "Victor Seow <seow321@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#1.1.0",
+    "iron-elements": "PolymerElements/iron-elements#~1.0.4",
+    "paper-elements": "PolymerElements/paper-elements#~1.0.5",
+    "neon-elements": "PolymerElements/neon-elements#~1.0.0",
+    "platinum-elements": "PolymerElements/platinum-elements#~1.2.0",
+    "angular": "~1.4.7",
+    "angular-animate": "~1.4.7",
+    "angular-ui-router": "~0.2.15",
+    "oclazyload": "~1.0.6"
+  }
+}
