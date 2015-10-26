@@ -93,7 +93,7 @@ boiApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,
                         name: 'boiApp',
                         files: [
 							
-                            '/Controllers/HomeController.js',
+                            'Controllers/HomeController.js',
                         ]
                     });
                 }]
@@ -111,7 +111,7 @@ boiApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,
                         name: 'boiApp',
                         files: [
 
-                            '/Controllers/HomeController.js',
+                            'Controllers/HomeController.js',
                         ]
                     });
                 }]
@@ -128,7 +128,7 @@ boiApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,
                      name: 'boiApp',
                      files: [
 
-                         '/Controllers/Admin/AdminIndexController.js',
+                         'Controllers/Admin/AdminIndexController.js',
                      ]
                  });
              }]
