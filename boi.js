@@ -117,6 +117,23 @@ boiApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,
                 }]
             }
         })
+     .state('Admin-Index', {
+         url: "/Admin",
+         templateUrl: "Views/Admin/Index.html",
+         data: { pageTitle: 'Admin' },
+         controller: "AdminIndexController",
+         resolve: {
+             deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                 return $ocLazyLoad.load({
+                     name: 'boiApp',
+                     files: [
+
+                         '/Controllers/Admin/AdminIndexController.js',
+                     ]
+                 });
+             }]
+         }
+     })
 
 		//// Master Data - Customer Profile - home
         //.state('masterdata-customerprofile-home', {
