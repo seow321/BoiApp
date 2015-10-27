@@ -17,23 +17,14 @@ boiApp.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
 boiApp.factory('settings', ['$rootScope', function ($rootScope) {
     // supported languages
     var settings = {
-        spinner: {
-            toggle: function () {
-                var spinners = document.querySelectorAll('paper-spinner');
-                Array.prototype.forEach.call(spinners, function (spinner) {
-                    spinner.active = !spinner.active;
-                });
-            }
-        }
+        loading: false
     };
 
     $rootScope.settings = settings;
 
     var spinners = document.querySelectorAll('paper-spinner');
     $rootScope.$on('$stateChangeStart', function () {
-        Array.prototype.forEach.call(spinners, function (spinner) {
-            spinner.active = true;
-        });
+        $rootScope.settings.loading = true;
         var drawerPanel = document.querySelector('#paperDrawerPanel');
         if (drawerPanel.narrow) {
             drawerPanel.closeDrawer();
@@ -42,25 +33,19 @@ boiApp.factory('settings', ['$rootScope', function ($rootScope) {
 
     // hide the spinner on rounte change success(after the content loaded)
     $rootScope.$on('$stateChangeSuccess', function () {
-        Array.prototype.forEach.call(spinners, function (spinner) {
-            spinner.active = false;
-        });
+        $rootScope.settings.loading = false;
         document.querySelector('boi-main').show();
     });
 
     // handle errors
     $rootScope.$on('$stateNotFound', function () {
-        Array.prototype.forEach.call(spinners, function (spinner) {
-            spinner.active = false;
-        });
+        $rootScope.settings.loading = false;
         document.querySelector('boi-main').show();
     });
 
     // handle errors
     $rootScope.$on('$stateChangeError', function () {
-        Array.prototype.forEach.call(spinners, function (spinner) {
-            spinner.active = false;
-        });
+        $rootScope.settings.loading = false;
         document.querySelector('boi-main').show();
     });
 
@@ -71,7 +56,7 @@ boiApp.factory('settings', ['$rootScope', function ($rootScope) {
 /* Setup App Main Controller */
 //boiApp.controller('AppController', ['$scope', '$rootScope', function ($scope, $rootScope) {
 //    $scope.$on('$viewContentLoaded', function () {
-        
+
 //    });
 //}]);
 
@@ -92,7 +77,7 @@ boiApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,
                     return $ocLazyLoad.load({
                         name: 'boiApp',
                         files: [
-							
+
                             'Controllers/HomeController.js',
                         ]
                     });
@@ -135,45 +120,91 @@ boiApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,
          }
      })
 
-		//// Master Data - Customer Profile - home
-        //.state('masterdata-customerprofile-home', {
-        //    url: "/master-data/customer-profile",
-        //    templateUrl: "views/settings/master_data/customer_profile/home.html",
-        //    data: { pageTitle: 'Master Settings - Customer Profie - Home' },
-        //    controller: "CustomerProfileController",
-        //    resolve: {
-        //        deps: ['$ocLazyLoad', function ($ocLazyLoad) {
-        //            return $ocLazyLoad.load([{
-        //                name: 'MetronicApp',
-        //                files: [
-		//					'css/general_home.css',
-		//					'css/master_data-customer_profile.css',
-		//					'js/pages/master_data-customer_profile.js',
-		//					'js/controllers/CustomerProfileController.js'
-        //                ]
-        //            }]);
-        //        }]
-        //    }
-        //})
+    .state('Tests-Index', {
+        url: "/Tests",
+        templateUrl: "Views/Tests/Index.html",
+        data: { pageTitle: 'Admin' },
+        controller: "TestController",
+        resolve: {
+            deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    name: 'boiApp',
+                    files: [
+                        "Views/Tests/TestController.js",
+                    ]
+                });
+            }]
+        }
+    })
+
+    //// Master Data - Customer Profile - home
+    //.state('masterdata-customerprofile-home', {
+    //    url: "/master-data/customer-profile",
+    //    templateUrl: "views/settings/master_data/customer_profile/home.html",
+    //    data: { pageTitle: 'Master Settings - Customer Profie - Home' },
+    //    controller: "CustomerProfileController",
+    //    resolve: {
+    //        deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+    //            return $ocLazyLoad.load([{
+    //                name: 'MetronicApp',
+    //                files: [
+    //					'css/general_home.css',
+    //					'css/master_data-customer_profile.css',
+    //					'js/pages/master_data-customer_profile.js',
+    //					'js/controllers/CustomerProfileController.js'
+    //                ]
+    //            }]);
+    //        }]
+    //    }
+    //})
 
 
-		// // Error 404
-        //.state("error404", {
-        //    url: "/error404",
-        //    templateUrl: "views/error404.html",
-        //    data: { pageTitle: 'Error 404' },
-        //    resolve: {
-        //        deps: ['$ocLazyLoad', function ($ocLazyLoad) {
-        //            return $ocLazyLoad.load([{
-        //                name: 'MetronicApp',
-        //                files: [
-		//					'css/error404.css'
-        //                ]
-        //            }]);
-        //        }]
-        //    }
-        //})
+    // // Error 404
+    //.state("error404", {
+    //    url: "/error404",
+    //    templateUrl: "views/error404.html",
+    //    data: { pageTitle: 'Error 404' },
+    //    resolve: {
+    //        deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+    //            return $ocLazyLoad.load([{
+    //                name: 'MetronicApp',
+    //                files: [
+    //					'css/error404.css'
+    //                ]
+    //            }]);
+    //        }]
+    //    }
+    //})
 
+}]);
+
+//Custom Directives that allow polymer and angular binding
+boiApp.directive('bindPolymer', ['$parse', function ($parse) {
+    return {
+        restrict: 'A',
+        scope: false,
+        compile: function bindPolymerCompile(el, attr) {
+            var attrMap = {};
+            for (var prop in attr) {
+                if (angular.isString(attr[prop])) {
+                    var _match = attr[prop].match(/\{\{\s*([\.\w]+)\s*\}\}/);
+                    if (_match) {
+                        attrMap[prop] = $parse(_match[1]);
+                    }
+                }
+            }
+            return function bindPolymerLink(scope, element, attrs) {
+                Object.keys(attrMap).forEach(function (key) {
+                    element.on(key + '-changed', function (event) {
+                        scope.$evalAsync(function () {
+                            if (attrMap[key](scope) === event.detail.value) return;
+                            attrMap[key].assign(scope, event.detail.value);
+                        });
+                    });
+                });
+            };
+        }
+    };
 }]);
 
 /* Init global settings and run the app */

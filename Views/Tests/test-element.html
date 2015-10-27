@@ -1,0 +1,55 @@
+﻿<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+
+<dom-module id="test-element">
+    <style>
+    </style>
+
+    <template>
+        <paper-card elevation="3" style="padding:30px;margin:5px;">
+            <template is="dom-if" if="{{!edit}}">
+                Name :
+                <span>{{name}}</span>
+                <br />
+                Phone :
+                <span>{{phone}}</span>
+            </template>
+            <template is="dom-if" if="{{edit}}">
+                Name :
+                <input type="text" value="{{name::input}}" />
+                <br />
+                Phone :
+                <input type="text" value="{{phone::input}}" />
+            </template>
+            <br />
+            <button on-click="toggleEdit">Edit</button>
+        </paper-card>
+        <content></content>
+    </template>
+</dom-module>
+<script>
+
+    Polymer({
+
+        is: 'test-element',
+
+        properties: {
+
+            name: {
+                type: String,
+                notify: true
+            },
+            phone: {
+                type: String,
+                notify: true
+            }
+
+        },
+        ready: function () {
+            this.edit = false;
+        },
+        toggleEdit: function () {
+            return (this.edit = !this.edit);
+        },
+    });
+
+</script>

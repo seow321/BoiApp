@@ -1,0 +1,17 @@
+﻿
+<!--
+
+    Example of two way binding to work.
+    1. Add 'bind-polymer'
+    2. The custom attribute has to be in one word
+    3. Only string can be passed
+
+-->
+
+<link rel="import" href="Views/Tests/test-element.html" />
+
+<test-element ng-repeat="model in model"
+              name="{{model.name}}"
+              phone="{{model.phone}}" bind-polymer></test-element>
+
+<input type="button" value="Alert" ng-click="doAlert()" />
