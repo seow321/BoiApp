@@ -1,18 +1,26 @@
-﻿
-<link rel="import" href="/bower_components/paper-item/paper-item.html">
-<div>
-    <h2>
-        Admin Index
-        Hello
-    </h2>
+﻿<html>
+<head>
 
-    <div class="list short" role="list">
-        <div ng-repeat="n in list">
-            <paper-item label="{{n}}">
-                Person {{n}}
-            </paper-item>
-        </div>
+</head>
+
+<body>
+
+    <link rel="import" href="Views/Admin/dealer-info.html" />
+    <paper-card elevation="3" style="margin:20px">
+        <dealer-info ng-repeat="person in person"
+                     name="{{person.name}}" bind-polymer></dealer-info>
+    </paper-card>
+    
 
 
-    </div>
-</div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
