@@ -5,17 +5,15 @@
     <meta name="viewport" content="width=device-width" />
 </head>
 <body ng-class="{loaded:loaded}" ng-init="loaded = true">
-    <!--Loading Spinner-->
-    <div style="position:relative;width:30vh;z-index :100; margin:auto;margin-top:70px;">
-        <paper-spinner alt="Loading Page. Please wait..." style="width:30vh;height:30vh;">Loading... Please wait...</paper-spinner>
+    <div id="loading-wrapper" ng-show="settings.loading">
+        <div id="loading"></div>
     </div>
-
     <div id="loader-wrapper">
         <div id="loader"></div>
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
     </div>
-    
+
     <link rel="stylesheet" href="CSS/loader.css" />
 
     <!--Start loading dependencies here to save-->
@@ -75,6 +73,7 @@
                 <!-- Application name -->
                 <span class="flex" style="text-align:center">
                     Board of Investment
+                    {{settings.loading}}
                 </span>
                 <paper-icon-button icon="alarm"></paper-icon-button>
             </paper-toolbar>
