@@ -6,7 +6,7 @@
 </head>
 <body ng-class="{loaded:loaded}" ng-init="loaded = true">
     <div id="loading-wrapper" ng-show="settings.loading">
-        <div id="loading"></div>
+        <div id="loading" ng-show="settings.loading"></div>
     </div>
     <div id="loader-wrapper">
         <div id="loader"></div>
@@ -73,7 +73,6 @@
                 <!-- Application name -->
                 <span class="flex" style="text-align:center">
                     Board of Investment
-                    {{settings.loading}}
                 </span>
                 <paper-icon-button icon="alarm"></paper-icon-button>
             </paper-toolbar>
