@@ -1,0 +1,36 @@
+﻿<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+
+<dom-module id="notification-item">
+
+    <template>
+     
+        <paper-item>
+            <paper-item-body two-line>
+                <div><span>{{title}}</span></div>
+                <div secondary style="color:gray">{{details}}</div>
+            </paper-item-body>
+        </paper-item>
+    </template>
+</dom-module>
+
+<script>
+
+    Polymer({
+
+        is: 'notification-item',
+
+        properties: {
+
+            title: {
+                type: String,
+                notify: true
+            },
+            details: {
+                type: String,
+                notify: true
+            }
+        }
+    });
+    
+
+</script>

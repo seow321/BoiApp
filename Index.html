@@ -32,9 +32,12 @@
     <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html" />
     <link rel="import" href="bower_components/neon-animation/neon-animations.html">
     <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="bower_components/iron-icons/communication-icons.html">
+    <link rel="import" href="Views/Notification/notification-item.html" />
 
     <!--Custom Polymer Themes here-->
     <link rel="import" href="CSS/technology.html" />
+    <link rel="stylesheet" href="CSS/site.css" type="text/css" />
 
     <!--Custom Polymer Elements here-->
     <link rel="import" href="Elements/boi-main/boi-main.html" />
@@ -74,7 +77,9 @@
                 <span class="flex" style="text-align:center">
                     Board of Investment
                 </span>
-                <paper-icon-button icon="alarm"></paper-icon-button>
+                <div ng-init="showNoti = false">
+                    <paper-icon-button icon="communication:forum" ng-click="showNoti = !showNoti"></paper-icon-button>
+                </div>
             </paper-toolbar>
 
 
@@ -83,7 +88,12 @@
 
                 </div>
             </boi-main>
-
+            <paper-card rel="noti" elevation="3" ng-controller="NotificationController" ng-show="showNoti">
+                <notification-item ng-repeat="notification in notificationList"
+                                   title="{{notification.title}}"
+                                   details="{{notification.details}}"
+                                   bind-polymer></notification-item>
+            </paper-card>
         </paper-header-panel>
 
     </paper-drawer-panel>
@@ -96,6 +106,9 @@
 
     <!--Angular App JS here-->
     <script src="boi.js"></script>
+    <script src="Controllers/NotificationController.js"></script>
+
+
 </body>
 </html>
 
