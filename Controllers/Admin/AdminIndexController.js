@@ -17,4 +17,10 @@ boiApp.controller('AdminIndexController', function ($rootScope, $scope, $http, $
         { name: "Kek Sim" }, { name: "Xiang" },
         { name: "Kek Sim" }, { name: "Xiang" }
     ];
+
+    $scope.selected = null;
+
+    $scope.select = function (person) {
+        $scope.selected = person;
+    }
 });

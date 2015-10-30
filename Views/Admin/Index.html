@@ -1,26 +1,32 @@
-﻿<html>
-<head>
+﻿
 
-</head>
+<link rel="import" href="Views/Admin/dealer-info.html" />
+<link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html" />
 
-<body>
 
-    <link rel="import" href="Views/Admin/dealer-info.html" />
-    <paper-card elevation="3" style="margin:20px">
+
+<paper-card id="personList" class="col-xs-12 {{selected? 'col-md-7': ''}}" style="height:100%;" elevation="3">
+    <paper-header-panel class="flex">
+        <div class="paper-header col-xs-12" style="height:64px;background-color:rgb(180, 180, 180)" ng-click="select(null)"></div>
         <dealer-info ng-repeat="person in person"
-                     name="{{person.name}}" bind-polymer></dealer-info>
-    </paper-card>
-    
+                     name="{{person.name}}" bind-polymer ng-click="select(person)"></dealer-info>
+    </paper-header-panel>
+</paper-card>
 
+<paper-card id="personDetail" class="{{selected? 'col-md-offset-1': 'col-md-offset-2'}} col-md-4 " style="height:100%;" elevation="3">
+    {{selected.name}}
+    {{selected.profile}}
+</paper-card>
 
-
-
-
-
-
-
-
-
-
-</body>
-</html>
+<style>
+    #personList{
+        -webkit-transition: all 0.15s ease-out;
+        transition: all 0.15s ease-out;
+    }
+    #personDetail{
+        position:absolute;
+        top:0;
+        -webkit-transition: all 0.3s ease-in-out 0.1s;
+        transition: all 0.3s ease-in-out 0.1s;
+    }
+</style>

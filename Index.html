@@ -4,7 +4,7 @@
     <title ng-bind="'BoI : ' + $state.current.data.pageTitle"></title>
     <meta name="viewport" content="width=device-width" />
 </head>
-<body ng-class="{loaded:loaded}" ng-init="loaded = true">
+<body ng-class="{loaded:loaded}" ng-init="loaded = true" class="fullbleed layout vertical">
     <div id="loading-wrapper" ng-show="settings.loading">
         <div id="loading" ng-show="settings.loading"></div>
     </div>
@@ -82,12 +82,14 @@
                 </div>
             </paper-toolbar>
 
+            <!--<div class="fit">-->
+                <boi-main class="container fit" >
+                    <div ui-view style="height:80%;margin-top:5%;margin-bottom:5%;position:relative;">
 
-            <boi-main style="width:50%;margin:auto;">
-                <div ui-view>
-
-                </div>
-            </boi-main>
+                    </div>
+                </boi-main>
+            <!--</div>-->
+            
             <paper-card rel="noti" elevation="3" ng-controller="NotificationController" ng-show="showNoti">
                 <notification-item ng-repeat="notification in notificationList"
                                    title="{{notification.title}}"
