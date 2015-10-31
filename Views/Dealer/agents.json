@@ -1,0 +1,74 @@
+﻿[
+    {
+        "agentId": "AG0001",
+        "name": "Agent 1",
+        "deals": [
+            {
+                "dealId": "DL0001",
+                "amount": 1000,
+                "out": 600,
+                "in": 0
+            },
+            {
+                "dealId": "DL0002",
+                "amount": 1000,
+                "out": 600,
+                "in": 0
+            },
+            {
+                "dealId": "DL0003",
+                "amount": 1000,
+                "out": 600,
+                "in": 0
+            }
+        ]
+    },
+    {
+        "agentId": "AG0002",
+        "name": "Agent 2",
+        "deals": [
+            {
+                "dealId": "DL0004",
+                "amount": 1000,
+                "out": 600,
+                "in": 0
+            },
+            {
+                "dealId": "DL0005",
+                "amount": 1000,
+                "out": 600,
+                "in": 0
+            },
+            {
+                "dealId": "DL0006",
+                "amount": 1000,
+                "out": 600,
+                "in": 0
+            }
+        ]
+    },
+    {
+        "agentId": "AG0003",
+        "name": "Agent 3",
+        "deals": [
+            {
+                "dealId": "DL0007",
+                "amount": 1000,
+                "out": 600,
+                "in": 0
+            },
+            {
+                "dealId": "DL0008",
+                "amount": 1000,
+                "out": 600,
+                "in": 0
+            },
+            {
+                "dealId": "DL0009",
+                "amount": 1000,
+                "out": 600,
+                "in": 0
+            }
+        ]
+    }
+]

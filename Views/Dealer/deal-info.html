@@ -1,13 +1,13 @@
 ﻿<link rel="import" href="../../bower_components/paper-card/paper-card.html">
 
-<dom-module id="agent-info">
+<dom-module id="deal-info">
 
     <template>
-     
+
         <paper-item>
             <paper-item-body two-line>
-                <div><span>{{name}}</span></div>
-                <div secondary style="color:gray">dealer profile</div>
+                <div><span>{{dealId}}</span></div>
+                <div secondary style="color:gray">{{dealAmount}}</div>
             </paper-item-body>
         </paper-item>
     </template>
@@ -17,11 +17,15 @@
 
     Polymer({
 
-        is: 'agent-info',
+        is: 'deal-info',
 
         properties: {
 
-            name: {
+            dealId: {
+                type: String,
+                notify: true
+            },
+            dealAmount: {
                 type: String,
                 notify: true
             }

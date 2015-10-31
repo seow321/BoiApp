@@ -6,17 +6,15 @@ boiApp.controller('DealerController', function ($rootScope, $scope, $http, $time
     $scope.$on('$viewContentLoaded', function () {
         // initialize core components
         
-        
+        $http.get('Views/Dealer/agents.json')
+        .success(function (data) {
+            $scope.agents = data;
+        });
     });
 
-    $scope.agents = [
-        { name: "Kek Sim" }, { name: "Xiang" },
-        { name: "Kek Sim" }, { name: "Xiang" },
-        { name: "Kek Sim" }, { name: "Xiang" },
-        { name: "Kek Sim" }, { name: "Xiang" },
-        { name: "Kek Sim" }, { name: "Xiang" },
-        { name: "Kek Sim" }, { name: "Xiang" }
-    ];
+    $scope.search = false;
+
+    $scope.agents = [];
 
     $scope.selected = null;
 
