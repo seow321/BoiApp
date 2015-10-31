@@ -7,21 +7,11 @@
 
 <paper-card class="col-xs-12 " style="height:100%;overflow:hidden" elevation="3">
     <paper-header-panel id="personList" class="flex  col-xs-12 {{selected? 'col-md-8': ''}}">
-        <paper-toolbar style="background-color:#eee;">
-            <paper-item>
-                <paper-item-body two-line>
-                    <div style="color:black;">Dealers</div>
-                    <div secondary style="color:grey">
-                        Total : {{person.length}} Records
-                    </div>
-                </paper-item-body>
-            </paper-item>
-
-        </paper-toolbar>
+        <div class="paper-header col-xs-12" style="height:64px;background-color:#eee"></div>
         <dealer-info ng-repeat="person in person"
                      name="{{person.name}}" bind-polymer ng-click="select(person)"></dealer-info>
     </paper-header-panel>
-    <paper-header-panel id="personDetail" class="flex">
+    <paper-header-panel id="personDetail" class="flex" {{selected? '': 'col-md-4'}}>
         <paper-toolbar style="background-color:#eee;border-left:1px solid rgb(200, 200, 200)">
             <paper-icon-button icon="close" style="color:rgb(125, 125, 125);" ng-click="select(null)"></paper-icon-button>
 
