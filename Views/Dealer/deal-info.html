@@ -7,7 +7,11 @@
         <paper-item>
             <paper-item-body two-line>
                 <div><span>{{dealId}}</span></div>
-                <div secondary style="color:gray">{{dealAmount}}</div>
+                <div secondary style="color:gray;display:inline-flex;justify-content:space-between">
+                    <span>Amount: <b>{{dealAmount}}</b></span>
+                    <span>Out: <b>{{dealOut}}</b></span>
+                    <span>In: <b>{{dealIn}}</b></span>
+                </div>
             </paper-item-body>
         </paper-item>
     </template>
@@ -28,9 +32,17 @@
             dealAmount: {
                 type: String,
                 notify: true
+            },
+            dealOut: {
+                type: String,
+                notify: true
+            },
+            dealIn: {
+                type: String,
+                notify: true
             }
         }
     });
-    
+
 
 </script>

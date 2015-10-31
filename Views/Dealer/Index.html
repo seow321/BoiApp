@@ -55,11 +55,13 @@
             <paper-card heading="Profile" style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">
                 ...<br />
             </paper-card>
-            <paper-card heading="Deal" style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">
+            <paper-card heading="Recent Deals" style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">
                 <deal-info 
                            ng-repeat="deal in selected.deals" 
                            deal-id="{{deal.dealId}}"
-                           deal-amount="{{deal.amount}}"></deal-info>
+                           deal-amount="{{deal.amount}}"
+                           deal-out="{{deal.out}}"
+                           deal-in="{{deal.in}}"></deal-info>
             </paper-card>
             <paper-button primary raised style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">Edit Agent</paper-button>
             <paper-button error raised style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">Deactivate Agent</paper-button>
