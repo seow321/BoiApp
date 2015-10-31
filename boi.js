@@ -120,6 +120,24 @@ boiApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,
          }
      })
 
+    .state('Dealer-Index', {
+        url: "/Dealer",
+        templateUrl: "Views/Dealer/Index.html",
+        data: { pageTitle: 'Dealer' },
+        controller: "DealerController",
+        resolve: {
+            deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                return $ocLazyLoad.load({
+                    name: 'boiApp',
+                    files: [
+
+                        'Controllers/Dealer/DealerController.js',
+                    ]
+                });
+            }]
+        }
+    })
+
     .state('Tests-Index', {
         url: "/Tests",
         templateUrl: "Views/Tests/Index.html",
