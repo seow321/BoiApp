@@ -2,31 +2,65 @@
 
 <link rel="import" href="Views/Admin/dealer-info.html" />
 <link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html" />
+<link rel="import" href="Elements/boi-avatar/boi-avatar.html" />
 
 
-
-<paper-card id="personList" class="col-xs-12 {{selected? 'col-md-7': ''}}" style="height:100%;" elevation="3">
-    <paper-header-panel class="flex">
-        <div class="paper-header col-xs-12" style="height:64px;background-color:rgb(180, 180, 180)" ng-click="select(null)"></div>
+<paper-card class="col-xs-12 " style="height:100%;overflow:hidden" elevation="3">
+    <paper-header-panel id="personList" class="flex  col-xs-12 {{selected? 'col-md-8': ''}}">
+        <div class="paper-header col-xs-12" style="height:64px;background-color:#eee"></div>
         <dealer-info ng-repeat="person in person"
                      name="{{person.name}}" bind-polymer ng-click="select(person)"></dealer-info>
     </paper-header-panel>
-</paper-card>
+    <paper-header-panel id="personDetail" class="flex" {{selected? '': 'col-md-4'}}>
+        <paper-toolbar style="background-color:#eee;border-left:1px solid rgb(200, 200, 200)">
+            <paper-icon-button icon="close" style="color:rgb(125, 125, 125);" ng-click="select(null)"></paper-icon-button>
 
-<paper-card id="personDetail" class="{{selected? 'col-md-offset-1': 'col-md-offset-2'}} col-md-4 " style="height:100%;" elevation="3">
-    {{selected.name}}
-    {{selected.profile}}
+            <paper-item>
+                <paper-item-body two-line>
+                    <div style="color:black;">More Info</div>
+                    <div secondary style="color:grey">
+                        {{selected.name}}
+                    </div>
+                </paper-item-body>
+            </paper-item>
+
+        </paper-toolbar>
+        <!--<div class="paper-header col-xs-12" style="height:64px;background-color:#eee" ></div>-->
+        <div>
+            <boi-avatar></boi-avatar>
+            <paper-card heading="Profile" style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">
+                ...<br />
+            </paper-card>
+            <paper-card heading="Deal" style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">
+                ...<br />
+            </paper-card>
+            <paper-button primary raised style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">Edit Agent</paper-button>
+            <paper-button error raised style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">Deactivate Agent</paper-button>
+        </div>
+    </paper-header-panel>
 </paper-card>
 
 <style>
-    #personList{
+    #personList {
         -webkit-transition: all 0.15s ease-out;
         transition: all 0.15s ease-out;
     }
-    #personDetail{
-        position:absolute;
-        top:0;
+
+    ::-webkit-scrollbar {
+        width: 6px !important;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgba(255,255,255,.08);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(0,0,0,.2);
+    }
+
+    #personDetail {
         -webkit-transition: all 0.3s ease-in-out 0.1s;
         transition: all 0.3s ease-in-out 0.1s;
+        background: #f7f7f7;
     }
 </style>

@@ -1,0 +1,62 @@
+﻿<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html" />
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html" />
+
+<dom-module id="boi-avatar">
+    <style>
+        :host{
+            position:relative;
+            display:block;
+            width:200px;
+            height:200px;
+            margin-top:28px;
+            margin-bottom:28px;
+            margin-left:auto;
+            margin-right:auto;
+        }
+        :host > div {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(140,140,140,.85);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 0;
+            border-radius: 50%;
+        }
+        :host > div > iron-icon{
+            width:80%;
+            height:80%;
+            color: rgba(200, 200, 200,0.3);
+        }
+    </style>
+    <template>
+        <div><iron-icon icon="face"></iron-icon></div>
+    </template>
+</dom-module>
+<script>
+
+    Polymer({
+
+        is: 'boi-avatar',
+
+        properties: {
+
+        }
+
+    });
+
+</script>
