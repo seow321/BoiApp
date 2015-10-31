@@ -102,10 +102,10 @@ boiApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,
                 }]
             }
         })
-     .state('Admin-Index', {
-         url: "/Admin",
+     .state('Dealer-List', {
+         url: "/Dealer",
          templateUrl: "Views/Admin/Index.html",
-         data: { pageTitle: 'Admin' },
+         data: { pageTitle: 'Dealer List' },
          controller: "AdminIndexController",
          resolve: {
              deps: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -120,10 +120,10 @@ boiApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,
          }
      })
 
-    .state('Dealer-Index', {
-        url: "/Dealer",
+    .state('Agent-List', {
+        url: "/Agent",
         templateUrl: "Views/Dealer/Index.html",
-        data: { pageTitle: 'Dealer' },
+        data: { pageTitle: 'Agent List' },
         controller: "DealerController",
         resolve: {
             deps: ['$ocLazyLoad', function ($ocLazyLoad) {
