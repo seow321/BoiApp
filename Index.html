@@ -42,9 +42,9 @@
     <!--Custom Polymer Elements here-->
     <link rel="import" href="Elements/boi-main/boi-main.html" />
 
-    <paper-drawer-panel force-narrow id="paperDrawerPanel">
+    <paper-drawer-panel class="container" id="paperDrawerPanel">
         <paper-header-panel drawer fixed>
-            <paper-toolbar>
+            <paper-toolbar style="background-color:#eee;">
 
             </paper-toolbar>
             <div>
@@ -69,34 +69,23 @@
             </div>
         </paper-header-panel>
 
-        <paper-header-panel main style="background-color:#dfdfdf">
-            <paper-toolbar class="">
-                <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
-
-                <!-- Application name -->
-                <span class="flex" style="text-align:center">
-                    Board of Investment
-                </span>
-                <div ng-init="showNoti = false">
-                    <paper-icon-button icon="communication:forum" ng-click="showNoti = !showNoti"></paper-icon-button>
-                </div>
-            </paper-toolbar>
-
+        <paper-card main style="background-color:#dfdfdf;height:100%;" class="col-xs-12">
             <!--<div class="fit">-->
-                <boi-main class="container fit" >
-                    <div ui-view style="height:80%;margin-top:5%;margin-bottom:5%;position:relative;">
+            <boi-main class="fit">
+                <div ui-view style="height:100%;position:relative;">
 
-                    </div>
-                </boi-main>
+                </div>
+            </boi-main>
             <!--</div>-->
-            
-            <paper-card rel="noti" elevation="3" ng-controller="NotificationController" ng-show="showNoti">
+
+            <!--<paper-card rel="noti" elevation="3" ng-controller="NotificationController" ng-show="showNoti">
                 <notification-item ng-repeat="notification in notificationList"
                                    title="{{notification.title}}"
                                    details="{{notification.details}}"
                                    bind-polymer></notification-item>
-            </paper-card>
-        </paper-header-panel>
+            </paper-card>-->
+
+        </paper-card>
 
     </paper-drawer-panel>
 

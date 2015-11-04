@@ -11,7 +11,7 @@
 @import url("https://fonts.googleapis.com/css?family=Oxygen:700|Source+Sans+Pro");
 html { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; font-size: 16px; }
 
-html, body { margin: 0px; padding: 0px; min-height: 100%; color: #444444; background-color: #ffffff; font-family: 'Source Sans Pro', sans-serif; font-weight: 400; }
+html, body { margin: 0px; padding: 0px; min-height: 100%; color: #444444; background-color: #ffffff; font-family: 'Source Sans Pro', sans-serif; font-weight: 400;}
 
 section { padding: 40px 0px; }
 section[hero] { background-color: #f2f7fa; }
@@ -84,5 +84,15 @@ paper-fab[disabled] { color: #313238 !important; background: #afb1b9 !important;
 section.hero paper-menu, section[hero] paper-menu { --paper-menu-background-color: #f2f7fa; }
 
 paper-tabs { background-color: #373b50; color: #ffffff; }
+
+body:last-child::before{
+    content:"";
+    position:absolute;
+    left:0px;
+    top:0px;
+    background-color:#373b50;
+    height:20vh;
+    width:100vw;
+}
 
 </style>

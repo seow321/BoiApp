@@ -34,15 +34,15 @@ paper-card[rel="noti"] {
     width: 100%;
 }
 
-@media (min-width: 768px) {
-    .container {
-        width: 750px;
-    }
-}
-
 @media (min-width: 992px) {
     .container {
         width: 970px;
+        height:90%;
+        position:relative;
+    }
+     body{
+         display:flex;
+         justify-content:center;
     }
 }
 

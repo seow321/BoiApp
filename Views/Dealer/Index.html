@@ -13,7 +13,8 @@
     <!--Agent List-->
     <paper-header-panel id="agentList" class="flex  col-xs-12 {{selected? 'col-md-8': ''}}">
         <paper-toolbar style="background-color:#eee;">
-            <paper-item class="flex" ng-show="!search">
+            <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle style="color:rgb(125, 125, 125);"></paper-icon-button>
+            <paper-item class="flex" ng-show="!search" style="padding:0px;">
                 <paper-item-body two-line>
                     <div style="color:black;">Agents</div>
                     <div secondary style="color:grey">
