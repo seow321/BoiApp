@@ -1,27 +1,41 @@
 ﻿
 
+<link rel="import" href="Views/Admin/dealer-profile-dealinfo.html" />
 <link rel="import" href="Views/Admin/dealer-info.html" />
 <link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html" />
 <link rel="import" href="Elements/boi-avatar/boi-avatar.html" />
+<link rel="import" href="bower_components/paper-input/paper-input.html" />
+<link rel="import" href="bower_components/iron-icons/social-icons.html" />
+<link rel="import" href="bower_components/paper-fab/paper-fab.html" />
 
 
-<paper-card class="col-xs-12 " style="height:100%;overflow:hidden" elevation="3">
-    <paper-header-panel id="personList" class="flex  col-xs-12 {{selected? 'col-md-8': ''}}">
+<paper-card class="col-xs-12 " style="height:100%;overflow:hidden;display:inline-flex" elevation="3">
+
+    <paper-header-panel id="dealerList" class="{{selected? 'shrinked': ''}}">
         <paper-toolbar style="background-color:#eee;">
-            <paper-item>
+            <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle style="color:rgb(125, 125, 125);"></paper-icon-button>
+            <paper-item class="flex" ng-show="!search" style="padding:0px;">
                 <paper-item-body two-line>
                     <div style="color:black;">Dealers</div>
                     <div secondary style="color:grey">
-                        Total : {{person.length}} Records
+                        Total : {{dealers.length}} Records
                     </div>
                 </paper-item-body>
             </paper-item>
-
+            <paper-icon-button icon="search" style="color:rgb(125, 125, 125);" ng-click="search = true;" ng-show="!search"></paper-icon-button>
+            <paper-icon-button icon="social:person-add" style="color:rgb(125, 125, 125);" ng-show="!search"></paper-icon-button>
+            <paper-icon-button icon="arrow-back" style="color:rgb(125, 125, 125);" ng-click="search = false;" ng-show="search"></paper-icon-button>
+            <paper-input label="Search" class="flex" type="search" ng-show="search" no-label-float style="margin-left:18px;"></paper-input>
         </paper-toolbar>
-        <dealer-info ng-repeat="person in person"
-                     name="{{person.name}}" bind-polymer ng-click="select(person)"></dealer-info>
-    </paper-header-panel>
-    <paper-header-panel id="personDetail" class="flex">
+        <div style="position:relative;">
+            <dealer-info ng-repeat="dealer in dealers"
+                         name="{{dealer.name}}" bind-polymer ng-click="select(dealer)"></dealer-info>
+            </div>
+</paper-header-panel>
+
+
+
+    <paper-header-panel id="dealerDetail" class="{{selected? 'grow': ''}}">
         <paper-toolbar style="background-color:#eee;border-left:1px solid rgb(200, 200, 200)">
             <paper-icon-button icon="close" style="color:rgb(125, 125, 125);" ng-click="select(null)"></paper-icon-button>
 
@@ -39,10 +53,17 @@
         <div>
             <boi-avatar></boi-avatar>
             <paper-card heading="Profile" style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">
-                ...<br />
+                <dealer-profile-dealinfo ng-repeat="profiles in selected.profile"
+                                        date-created="{{profiles.dateCreated}}"
+                                        company-name="{{profiles.companyName}}"
+                                        status="{{profiles.status}}"
+                                        last-activity="{{profiles.lastActivity}}"></dealer-profile-dealinfo>
+                
+                <br />
             </paper-card>
             <paper-card heading="Deal" style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">
-                ...<br />
+           
+                <br />
             </paper-card>
             <paper-button primary raised style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">Edit Agent</paper-button>
             <paper-button error raised style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">Deactivate Agent</paper-button>
@@ -51,26 +72,62 @@
 </paper-card>
 
 <style>
-    #personList {
-        -webkit-transition: all 0.15s ease-out;
-        transition: all 0.15s ease-out;
-    }
-
-    ::-webkit-scrollbar {
-        width: 6px !important;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: rgba(255,255,255,.08);
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: rgba(0,0,0,.2);
-    }
-
-    #personDetail {
+    #dealerList {
         -webkit-transition: all 0.3s ease-in-out 0.1s;
         transition: all 0.3s ease-in-out 0.1s;
+        width:100%;
+        overflow:hidden;
+    }
+
+    #btnAddDealer{
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        display: block;
+    }
+
+    #dealerDetail {
+        -webkit-transition: all 0.15s ease-out;
+        transition: all 0.15s ease-out;
         background: #f7f7f7;
+        overflow: hidden;
+        width:0%;
+    }
+
+    #dealerList.shrinked{
+        -webkit-transition: all 0.15s ease-out;
+        transition: all 0.15s ease-out;
+        width: 0%;
+    }
+    #dealerDetail.grow {
+        width: 100%;
+        -webkit-transition: all 0.15s ease-out 0.15s;
+        transition: all 0.15s ease-out  0.15s;
+    }
+     @media (min-width: 992px) {
+        #dealerList.shrinked {
+            -webkit-transition: all 0.15s ease-out;
+            transition: all 0.15s ease-out;
+            width: 50%;
+        }
+
+        #dealerDetail.grow {
+            width: 50%;
+            -webkit-transition: all 0.2s ease-in-out 0.15s;
+            transition: all 0.2s ease-in-out 0.15s;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        #dealerList.shrinked {
+            -webkit-transition: all 0.15s ease-out;
+            transition: all 0.15s ease-out;
+        }
+
+        #dealerDetail.grow {
+            width: 50%;
+            -webkit-transition: all 0.2s ease-in-out 0.15s;
+            transition: all 0.2s ease-in-out 0.15s;
+        }
     }
 </style>

@@ -1,0 +1,58 @@
+﻿[
+    {
+        "dealerId": "DL0001",
+        "name": "Vic",
+		"profile": 
+			[{		 "dateCreated": "12Jan2012",
+					 "companyName": "L & C",
+					 "status": "activate",
+					 "lastActivity": "add new agent"
+		}],
+        "deals": 
+            [{
+                "totalDeal": 13,
+                "completedDeal": 10,
+                "dealPending": 5
+      
+            }]
+   
+    },
+   
+    {
+        "dealerId": "DL0002",
+        "name": "Mr Bak",
+		"profile": 
+			[{		 "dateCreated": "12Feb2012",
+					 "companyName": "Sport Com",
+					 "status": "activate",
+					 "lastActivity": "add new agent"
+		}],
+        "deals": 
+            [{
+                "totalDeal": 13,
+                "completedDeal": 10,
+                "dealPending": 5
+      
+            }]
+   
+    },
+   
+    {
+        "dealerId": "DL0003",
+        "name": "Mr Boo",
+		"profile": 
+			[{		 "dateCreated": "13March2012",
+					 "companyName": "DC ",
+					 "status": "activate",
+					 "lastActivity": "add new agent"
+		}],
+        "deals": 
+            [{
+                "totalDeal": 15,
+                "completedDeal": 9,
+                "dealPending": 5
+      
+            }]
+   
+    }
+]
