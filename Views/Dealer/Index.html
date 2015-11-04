@@ -9,9 +9,11 @@
 <link rel="import" href="bower_components/iron-icons/social-icons.html" />
 
 
-<paper-card class="col-xs-12 " style="height:100%;overflow:hidden" elevation="3">
+<paper-card class="col-xs-12 " style="height:100%;overflow:hidden;display:inline-flex" elevation="3">
     <!--Agent List-->
-    <paper-header-panel id="agentList" class="flex  col-xs-12 {{selected? 'col-md-8': ''}}">
+    <!--<paper-header-panel id="agentList" class="flex {{selected? 'col-xs-1 col-sm-6 col-md-7': 'col-xs-12'}}">-->
+    <paper-header-panel id="agentList" class="{{selected? 'shrinked': ''}}">
+        >
         <paper-toolbar style="background-color:#eee;">
             <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle style="color:rgb(125, 125, 125);"></paper-icon-button>
             <paper-item class="flex" ng-show="!search" style="padding:0px;">
@@ -23,20 +25,20 @@
                 </paper-item-body>
             </paper-item>
             <paper-icon-button icon="search" style="color:rgb(125, 125, 125);" ng-click="search = true;" ng-show="!search"></paper-icon-button>
-            <paper-icon-button icon="social:person-add" style="color:rgb(125, 125, 125);" ng-show="!search" ></paper-icon-button>
+            <paper-icon-button icon="social:person-add" style="color:rgb(125, 125, 125);" ng-show="!search"></paper-icon-button>
             <paper-icon-button icon="arrow-back" style="color:rgb(125, 125, 125);" ng-click="search = false;" ng-show="search"></paper-icon-button>
             <paper-input label="Search" class="flex" type="search" ng-show="search" no-label-float style="margin-left:18px;"></paper-input>
         </paper-toolbar>
         <div style="position:relative;">
             <agent-info ng-repeat="agent in agents"
-                         name="{{agent.name}}" bind-polymer ng-click="select(agent)"></agent-info>
+                        name="{{agent.name}}" bind-polymer ng-click="select(agent)"></agent-info>
 
-            
+
         </div>
-        
+
     </paper-header-panel>
     <!--Agent Details-->
-    <paper-header-panel id="agentDetail" class="flex">
+    <paper-header-panel id="agentDetail" class="{{selected? 'grow': ''}}">
         <paper-toolbar style="background-color:#eee;border-left:1px solid rgb(200, 200, 200)">
             <paper-icon-button icon="close" style="color:rgb(125, 125, 125);" ng-click="select(null)"></paper-icon-button>
 
@@ -57,8 +59,7 @@
                 ...<br />
             </paper-card>
             <paper-card heading="Recent Deals" style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">
-                <deal-info 
-                           ng-repeat="deal in selected.deals" 
+                <deal-info ng-repeat="deal in selected.deals"
                            deal-id="{{deal.dealId}}"
                            deal-amount="{{deal.amount}}"
                            deal-out="{{deal.out}}"
@@ -68,25 +69,69 @@
             <paper-button error raised style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">Deactivate Agent</paper-button>
         </div>
     </paper-header-panel>
-    
+
 </paper-card>
 
 <style>
     #agentList {
-        -webkit-transition: all 0.15s ease-out;
-        transition: all 0.15s ease-out;
+        -webkit-transition: all 0.3s ease-in-out 0.1s;
+        transition: all 0.3s ease-in-out 0.1s;
+        width:100%;
+        overflow:hidden;
     }
 
-    #btnAddAgent{
-        position:absolute;
-        right:20px;
-        bottom:20px;
-        display:block;
+    #btnAddAgent {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        display: block;
     }
 
     #agentDetail {
-        -webkit-transition: all 0.3s ease-in-out 0.1s;
-        transition: all 0.3s ease-in-out 0.1s;
+        -webkit-transition: all 0.15s ease-out;
+        transition: all 0.15s ease-out;
         background: #f7f7f7;
+        overflow: hidden;
+        width:0%;
+    }
+
+    #agentList.shrinked {
+        -webkit-transition: all 0.15s ease-out;
+        transition: all 0.15s ease-out;
+        width: 0%;
+    }
+
+    #agentDetail.grow {
+        width: 100%;
+        -webkit-transition: all 0.15s ease-out 0.15s;
+        transition: all 0.15s ease-out  0.15s;
+    }
+
+
+    @media (min-width: 992px) {
+        #agentList.shrinked {
+            -webkit-transition: all 0.15s ease-out;
+            transition: all 0.15s ease-out;
+            width: 50%;
+        }
+
+        #agentDetail.grow {
+            width: 50%;
+            -webkit-transition: all 0.2s ease-in-out 0.15s;
+            transition: all 0.2s ease-in-out 0.15s;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        #agentList.shrinked {
+            -webkit-transition: all 0.15s ease-out;
+            transition: all 0.15s ease-out;
+        }
+
+        #agentDetail.grow {
+            width: 50%;
+            -webkit-transition: all 0.2s ease-in-out 0.15s;
+            transition: all 0.2s ease-in-out 0.15s;
+        }
     }
 </style>
