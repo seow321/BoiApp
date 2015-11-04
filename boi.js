@@ -79,6 +79,7 @@ boiApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,
                         files: [
 
                             'Controllers/HomeController.js',
+                            'http://echarts.baidu.com/build/dist/echarts.js'
                         ]
                     });
                 }]

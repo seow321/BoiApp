@@ -1,5 +1,15 @@
-﻿
-<h1>Home Page!!!!</h1>
-    This is dashboard page !!
+﻿<!-- Prepare a Dom with size (width and height) for ECharts -->
+<paper-toolbar style="background-color:#eee;">
+    <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle style="color:rgb(125, 125, 125);"></paper-icon-button>
+    <paper-item class="flex" style="padding:0px;">
+        <paper-item-body two-line>
+            <div style="color:black;">Home</div>
+            <div secondary style="color:grey">
+                Dashboard
+            </div>
+        </paper-item-body>
+    </paper-item>
+</paper-toolbar>
 
-Edited by Yuggo!!
+<div id="dashboard" style="height:100%;"></div>
+<!-- ECharts import -->
