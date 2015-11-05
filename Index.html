@@ -42,52 +42,54 @@
     <!--Custom Polymer Elements here-->
     <link rel="import" href="Elements/boi-main/boi-main.html" />
 
-    <paper-drawer-panel class="container" id="paperDrawerPanel">
-        <paper-header-panel drawer fixed>
-            <paper-toolbar style="background-color:#eee;">
+    <paper-material class="container" elevation="3">
+        <paper-drawer-panel class="" id="paperDrawerPanel">
+            <paper-header-panel drawer fixed>
+                <paper-toolbar style="">
 
-            </paper-toolbar>
-            <div>
-                <a href="#/home">
-                    <paper-icon-item>
-                        <iron-icon icon="home" item-icon></iron-icon>
-                        Home
-                    </paper-icon-item>
-                </a>
-                <a href="#/Dealer">
-                    <paper-icon-item>
-                        <iron-icon icon="info" item-icon></iron-icon>
-                        Dealer
-                    </paper-icon-item>
-                </a>
-                <a href="#/Agent">
-                    <paper-icon-item>
-                        <iron-icon icon="info" item-icon></iron-icon>
-                        Agent
-                    </paper-icon-item>
-                </a>
-            </div>
-        </paper-header-panel>
-
-        <paper-card main style="background-color:#dfdfdf;height:100%;" class="col-xs-12">
-            <!--<div class="fit">-->
-            <boi-main class="fit">
-                <div ui-view style="height:100%;position:relative;">
-
+                </paper-toolbar>
+                <div>
+                    <a href="#/home">
+                        <paper-icon-item>
+                            <iron-icon icon="home" item-icon></iron-icon>
+                            Home
+                        </paper-icon-item>
+                    </a>
+                    <a href="#/Dealer">
+                        <paper-icon-item>
+                            <iron-icon icon="info" item-icon></iron-icon>
+                            Dealer
+                        </paper-icon-item>
+                    </a>
+                    <a href="#/Agent">
+                        <paper-icon-item>
+                            <iron-icon icon="info" item-icon></iron-icon>
+                            Agent
+                        </paper-icon-item>
+                    </a>
                 </div>
-            </boi-main>
-            <!--</div>-->
+            </paper-header-panel>
 
-            <!--<paper-card rel="noti" elevation="3" ng-controller="NotificationController" ng-show="showNoti">
+            <paper-card main style="background-color:#dfdfdf;height:100%;" class="col-xs-12">
+                <!--<div class="fit">-->
+                <boi-main class="fit">
+                    <div ui-view style="height:100%;position:relative;">
+
+                    </div>
+                </boi-main>
+                <!--</div>-->
+                <!--<paper-card rel="noti" elevation="3" ng-controller="NotificationController" ng-show="showNoti">
                 <notification-item ng-repeat="notification in notificationList"
                                    title="{{notification.title}}"
                                    details="{{notification.details}}"
                                    bind-polymer></notification-item>
             </paper-card>-->
 
-        </paper-card>
+            </paper-card>
 
-    </paper-drawer-panel>
+        </paper-drawer-panel>
+
+    </paper-material>
 
     <!--Angular Components here-->
     <script src="bower_components/angular/angular.min.js"></script>

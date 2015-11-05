@@ -85,14 +85,40 @@ section.hero paper-menu, section[hero] paper-menu { --paper-menu-background-colo
 
 paper-tabs { background-color: #373b50; color: #ffffff; }
 
+body{
+    background-color:#dfdfdf;
+}
+
 body:last-child::before{
     content:"";
     position:absolute;
     left:0px;
     top:0px;
     background-color:#373b50;
-    height:20vh;
+    height:30vh;
     width:100vw;
+}
+
+paper-toolbar paper-icon-button, paper-item paper-item-body.paper-item-body-0{
+    color: #f3f3f3;
+}
+paper-toolbar paper-item paper-item-body.paper-item-body-0 [secondary] {
+    color: #dcdcdc;
+}
+@media (min-width: 992px) {
+    paper-toolbar.paper-toolbar-0{
+        background:#eee;
+        color: #444444;
+    }
+    paper-toolbar paper-icon-button{
+        color:rgb(125, 125, 125);
+    }
+    paper-item paper-item-body.paper-item-body-0{
+        color: #444444;
+    }
+    paper-toolbar paper-item paper-item-body.paper-item-body-0 [secondary] {
+        color: grey;
+    }
 }
 
 </style>

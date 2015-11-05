@@ -13,25 +13,26 @@
     <!--Agent List-->
     <!--<paper-header-panel id="agentList" class="flex {{selected? 'col-xs-1 col-sm-6 col-md-7': 'col-xs-12'}}">-->
     <paper-header-panel id="agentList" class="{{selected? 'shrinked': ''}}">
-        >
-        <paper-toolbar style="background-color:#eee;">
-            <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle style="color:rgb(125, 125, 125);"></paper-icon-button>
-            <paper-item class="flex" ng-show="!search" style="padding:0px;">
+        
+        <paper-toolbar>
+            <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+            <!--<paper-item class="flex" ng-show="!search" style="padding:0px;">
                 <paper-item-body two-line>
-                    <div style="color:black;">Agents</div>
-                    <div secondary style="color:grey">
+                    <div >Agents</div>
+                    <div secondary>
                         Total : {{agents.length}} Records
                     </div>
                 </paper-item-body>
-            </paper-item>
-            <paper-icon-button icon="search" style="color:rgb(125, 125, 125);" ng-click="search = true;" ng-show="!search"></paper-icon-button>
-            <paper-icon-button icon="social:person-add" style="color:rgb(125, 125, 125);" ng-show="!search"></paper-icon-button>
-            <paper-icon-button icon="arrow-back" style="color:rgb(125, 125, 125);" ng-click="search = false;" ng-show="search"></paper-icon-button>
+            </paper-item>-->
+            <span class="flex"  ng-show="!search" >Agent List</span>
+            <paper-icon-button icon="search"  ng-click="search = true;" ng-show="!search"></paper-icon-button>
+            <paper-icon-button icon="social:person-add"  ng-show="!search"></paper-icon-button>
+            <paper-icon-button icon="arrow-back" ng-click="search = false;" ng-show="search"></paper-icon-button>
             <paper-input label="Search" class="flex" type="search" ng-show="search" no-label-float style="margin-left:18px;"></paper-input>
         </paper-toolbar>
         <div style="position:relative;">
             <agent-info ng-repeat="agent in agents"
-                        name="{{agent.name}}" bind-polymer ng-click="select(agent)"></agent-info>
+                        name="{{agent.name}}" agent-id="{{agent.agentId}}" bind-polymer ng-click="select(agent)"></agent-info>
 
 
         </div>
@@ -39,13 +40,13 @@
     </paper-header-panel>
     <!--Agent Details-->
     <paper-header-panel id="agentDetail" class="{{selected? 'grow': ''}}">
-        <paper-toolbar style="background-color:#eee;border-left:1px solid rgb(200, 200, 200)">
-            <paper-icon-button icon="close" style="color:rgb(125, 125, 125);" ng-click="select(null)"></paper-icon-button>
+        <paper-toolbar style="border-left:1px solid rgb(200, 200, 200)">
+            <paper-icon-button icon="close" style="" ng-click="select(null)"></paper-icon-button>
 
             <paper-item>
                 <paper-item-body two-line>
-                    <div style="color:black;">More Info</div>
-                    <div secondary style="color:grey">
+                    <div >More Info</div>
+                    <div secondary >
                         {{selected.name}}
                     </div>
                 </paper-item-body>
@@ -55,18 +56,20 @@
         <!--<div class="paper-header col-xs-12" style="height:64px;background-color:#eee" ></div>-->
         <div>
             <boi-avatar></boi-avatar>
-            <paper-card heading="Profile" style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">
-                ...<br />
+            <paper-card heading="Profile" style="width:80%; margin-left:10%;margin-right:10%;margin-top:28px;margin-bottom:28px;">
+                <paper-item>
+                    Agent ID: {{selected.agentId}}
+                </paper-item>
             </paper-card>
-            <paper-card heading="Recent Deals" style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">
+            <paper-card heading="Recent Deals" style="width:80%; margin-left:10%;margin-right:10%;margin-top:28px;margin-bottom:28px;">
                 <deal-info ng-repeat="deal in selected.deals"
                            deal-id="{{deal.dealId}}"
                            deal-amount="{{deal.amount}}"
                            deal-out="{{deal.out}}"
                            deal-in="{{deal.in}}"></deal-info>
             </paper-card>
-            <paper-button primary raised style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">Edit Agent</paper-button>
-            <paper-button error raised style="width:80%; margin-left:auto;margin-right:auto;margin-top:28px;margin-bottom:28px;">Deactivate Agent</paper-button>
+            <paper-button primary raised style="width:80%; margin-left:10%;margin-right:10%;margin-top:28px;margin-bottom:28px;">Edit Agent</paper-button>
+            <paper-button error raised style="width:80%; margin-left:10%;margin-right:10%;margin-top:28px;margin-bottom:28px;">Deactivate Agent</paper-button>
         </div>
     </paper-header-panel>
 

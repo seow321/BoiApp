@@ -1,8 +1,8 @@
 ﻿/* BOI App */
 var boiApp = angular.module("boiApp", [
     "ui.router",
-    "oc.lazyLoad",
-    "ngAnimate"
+    "oc.lazyLoad"
+    //"ngAnimate"
 ]);
 
 /* Configure ocLazyLoader(refer: https://github.com/ocombe/ocLazyLoad) */

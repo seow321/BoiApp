@@ -1,5 +1,31 @@
 ﻿<!-- Prepare a Dom with size (width and height) for ECharts -->
-<paper-toolbar style="background-color:#eee;">
+
+<paper-card class="col-xs-12 " style="height:100%;overflow:hidden;display:inline-flex" elevation="3">
+    
+    <paper-header-panel class="col-xs-12" style="height:100%;position:relative;">
+        <paper-toolbar>
+            <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+            <paper-item class="flex" style="padding:0px;">
+                <paper-item-body two-line>
+                    <div>Home</div>
+                    <div secondary>
+                        Dashboard
+                    </div>
+                </paper-item-body>
+            </paper-item>
+        </paper-toolbar>
+        <div style="height:100%;position:relative;">
+            <div id="dashboard" style="position:relative;height:400px;"></div> 
+        </div>
+        
+
+    </paper-header-panel>
+
+</paper-card>
+
+
+
+<!--<paper-toolbar style="background-color:#eee;">
     <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle style="color:rgb(125, 125, 125);"></paper-icon-button>
     <paper-item class="flex" style="padding:0px;">
         <paper-item-body two-line>
@@ -11,5 +37,5 @@
     </paper-item>
 </paper-toolbar>
 
-<div id="dashboard" style="height:100%;"></div>
+<div id="dashboard" style="height:100%;"></div>-->
 <!-- ECharts import -->

@@ -1,7 +1,7 @@
 ﻿[
     {
         "agentId": "AG0001",
-        "name": "Agent 1",
+        "name": "Abu",
         "deals": [
             {
                 "dealId": "DL0001",
@@ -25,7 +25,7 @@
     },
     {
         "agentId": "AG0002",
-        "name": "Agent 2",
+        "name": "Tan Eng",
         "deals": [
             {
                 "dealId": "DL0004",
@@ -49,7 +49,7 @@
     },
     {
         "agentId": "AG0003",
-        "name": "Agent 3",
+        "name": "Antony",
         "deals": [
             {
                 "dealId": "DL0007",
