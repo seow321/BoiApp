@@ -34,6 +34,7 @@
     <link rel="import" href="bower_components/iron-icons/iron-icons.html">
     <link rel="import" href="bower_components/iron-icons/communication-icons.html">
     <link rel="import" href="Views/Notification/notification-item.html" />
+    <link rel="import" href="bower_components/paper-toast/paper-toast.html">
 
     <!--Custom Polymer Themes here-->
     <link rel="import" href="CSS/technology.html" />
@@ -49,24 +50,47 @@
 
                 </paper-toolbar>
                 <div>
+                    <paper-item style="background-color:#808080;color:white;">
+                        Agent Features
+                    </paper-item>
+                    <a href="#/Job">
+                        <paper-icon-item>
+                            <iron-icon icon="assignment" item-icon></iron-icon>
+                            Job
+                        </paper-icon-item>
+                    </a>
+                    <a href="#/MyDeal">
+                        <paper-icon-item>
+                            <iron-icon icon="assignment-ind" item-icon></iron-icon>
+                            My Deal
+                        </paper-icon-item>
+                    </a>
+                    <paper-item style="background-color:#808080;color:white;">
+                        Dealer Features
+                    </paper-item>
+                    <a href="#/Agent">
+                        <paper-icon-item>
+                            <iron-icon icon="perm-identity" item-icon></iron-icon>
+                            Agent
+                        </paper-icon-item>
+                    </a>
+                    <paper-item style="background-color:#808080;color:white;">
+                        Admin Features
+                    </paper-item>
                     <a href="#/home">
                         <paper-icon-item>
                             <iron-icon icon="home" item-icon></iron-icon>
-                            Home
+                            Dashboard
                         </paper-icon-item>
                     </a>
                     <a href="#/Dealer">
                         <paper-icon-item>
-                            <iron-icon icon="info" item-icon></iron-icon>
+                            <iron-icon icon="perm-identity" item-icon></iron-icon>
                             Dealer
                         </paper-icon-item>
                     </a>
-                    <a href="#/Agent">
-                        <paper-icon-item>
-                            <iron-icon icon="info" item-icon></iron-icon>
-                            Agent
-                        </paper-icon-item>
-                    </a>
+                    
+
                 </div>
             </paper-header-panel>
 
@@ -77,19 +101,16 @@
 
                     </div>
                 </boi-main>
-                <!--</div>-->
-                <!--<paper-card rel="noti" elevation="3" ng-controller="NotificationController" ng-show="showNoti">
-                <notification-item ng-repeat="notification in notificationList"
-                                   title="{{notification.title}}"
-                                   details="{{notification.details}}"
-                                   bind-polymer></notification-item>
-            </paper-card>-->
 
             </paper-card>
 
         </paper-drawer-panel>
 
     </paper-material>
+
+    <paper-toast id="toast1" text="Your draft has been discarded."></paper-toast>
+
+    <paper-toast id="toast2" text="Connection timed out. Showing limited messages."></paper-toast>
 
     <!--Angular Components here-->
     <script src="bower_components/angular/angular.min.js"></script>

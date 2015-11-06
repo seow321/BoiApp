@@ -15,7 +15,7 @@ boiApp.controller('HomeController', function ($rootScope, $scope, $http, $timeou
         require(
             [
                 'echarts',
-                'echarts/chart/pie' // require the specific chart type
+                'echarts/chart/bar' // require the specific chart type
             ],
             function (ec) {
                 // Initialize after dom ready
@@ -66,57 +66,71 @@ boiApp.controller('HomeController', function ($rootScope, $scope, $http, $timeou
                 var radius = [40, 55];
                 var option = {
                     title: {
-                        text: 'Oct - Nov',
-                        subtext: 'Flow of Investment',
-                        x: 'center'
-                    },
-                    tooltip: {
-                        trigger: 'item',
-                        formatter: "{a} <br/>{b} : {c} ({d}%)"
-                    },
-                    legend: {
-                        orient: 'horizontal',
-                        y: 'bottom',
-                        data: ['Out', 'In', 'Pending']
-                    },
-                    toolbox: {
-                        show: false,
-                        feature: {
-                            mark: { show: true },
-                            dataView: { show: true, readOnly: false },
-                            magicType: {
-                                show: true,
-                                type: ['pie', 'funnel'],
-                                option: {
-                                    funnel: {
-                                        x: '25%',
-                                        width: '50%',
-                                        funnelAlign: 'center',
-                                        max: 1548
-                                    }
-                                }
-                            },
-                            restore: { show: true },
-                            saveAsImage: { show: true }
+                        text: 'Investment Flow',
+                        subtext: 'Year 2015',
+                        x: 'center',
+                        textAlign: 'center',
+                        padding: '1',
+                        itemGap:"1",
+                        textStyle: {
+                            fontSize:'30'
+                        },
+                        subtextStyle: {
+                            fontSize: '15'
                         }
                     },
-                    calculable: true,
-                    color:[
-                        "rgb(50, 128, 255)",
-                        "rgb(50,204,102)",
-                        "rgb(243,130,130)"
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['Out', 'In'],
+                        y:'bottom'
+                    },
+                    calculable: false,
+                    xAxis: [
+                        {
+                            type: 'category',
+                            data: ['Jul', 'Aug', 'Sep']
+                        }
                     ],
+                    yAxis: [
+                        {
+                            type: 'value'
+                        }
+                    ],
+                    color:["red","green"],
                     series: [
                         {
-                            name: 'Deals',
-                            type: 'pie',
-                            radius: '55%',
-                            center: ['50%', '60%'],
-                            data: [
-                                { value: 600, name: 'Out' },
-                                { value: 700, name: 'In' },
-                                { value: 300, name: 'Pending' }
-                            ]
+                            name: 'Out',
+                            type: 'bar',
+                            data: [ 100, 100, 100],
+                            markPoint: {
+                                data: [
+                                    { type: 'max', name: 'Highest Out' }
+                                    
+                                ]
+                            },
+                            markLine: {
+                                data: [
+                                    { type: 'average', name: 'Average' }
+                                ]
+                            }
+                        },
+                        {
+                            name: 'In',
+                            type: 'bar',
+                            data: [ 70, 140, 280],
+                            markPoint: {
+                                data: [
+                                    { type:'max', name:'Highest In' }
+                                    
+                                ]
+                            },
+                            markLine: {
+                                data: [
+                                    { type: 'average', name: 'Average' }
+                                ]
+                            }
                         }
                     ]
                 };

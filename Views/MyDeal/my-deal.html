@@ -1,0 +1,157 @@
+﻿<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-item/paper-icon-item.html">
+<link rel="import" href="../../bower_components/paper-item/all-imports.html">
+<link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+
+<dom-module id="my-deal">
+    <style>
+        :host paper-icon-item {
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .avatar {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #ccc;
+        }
+
+        .avatar.blue {
+            background-color: var(--paper-light-blue-300);
+        }
+
+        .avatar.red {
+            background-color: var(--paper-red-300);
+        }
+
+        .avatar.orange {
+            background-color: darkorange;
+        }
+
+        .avatar.green {
+            background-color: var(--paper-green-300);
+        }
+        .blue {
+            color: var(--paper-light-blue-300);
+        }
+
+        .red {
+            color: var(--paper-red-300);
+        }
+
+        .orange {
+            color:darkorange;
+        }
+
+        .green {
+            color: var(--paper-green-300);
+        }
+    </style>
+    <template>
+        <paper-icon-item>
+            <paper-icon-button icon="" alt="More Details" class$="avatar [[color]]" on-tap="toggleMore" item-icon></paper-icon-button>
+            <template is='dom-if' if="{{!more}}">
+                <paper-item-body two-line>
+                    <div><span>{{name}}</span></div>
+                    <div secondary style="color:gray;">
+                        <span>Deal: <b>RM {{dealAmount}}</b></span>
+                        <span> In : <b class$="[[color]]">RM {{dealIn}}</b></span>
+                    </div>
+                </paper-item-body>
+            </template>
+            <template is='dom-if' if="{{more}}">
+                <paper-item-body two-line>
+                    <div>[[_calculateDayMissed()]]</div>
+                    <div secondary style="color:gray;">
+                        <span class$="[[color]]">[[_calculateInMissed()]]</span>
+                    </div>
+                </paper-item-body>
+            </template>
+            
+            
+        </paper-icon-item>
+    </template>
+</dom-module>
+
+<script>
+
+    Polymer({
+
+        is: 'my-deal',
+
+        properties: {
+            color: {
+                type: String,
+                notify: true
+            },
+            name: {
+                type: String,
+                notify: true
+            },
+            dealAmount: {
+                type: Number,
+                notify: true
+            },
+            dealIn: {
+                type: Number,
+                notify:true
+            },
+            dealOut: {
+                type: Number,
+                notify: true
+            },
+            duration: {
+                type: Number,
+                notify: true
+            },
+            day: {
+                type: Number,
+                notify: true
+            }
+            //day: {
+            //    type: Decimal,
+            //    notify:true
+            //}
+        },
+        ready: function () {
+            this.more = false;
+        },
+        toggleMore: function () {
+            return (this.more = !this.more);
+        },
+        _calculateDayMissed: function () {
+            var perday = this.dealAmount / this.duration;
+            var estIn = perday * this.day;
+
+            var result = '';
+            if (this.dealIn - estIn >= 0) {
+                // Okay
+                result = 'On Time';
+            } else {
+                // Missed some days
+                result = 'Behind by ' + (estIn - this.dealIn) / perday + ' days';
+            }
+
+            console.log(result);
+            return result;
+        },
+        _calculateInMissed: function () {
+            var perday = this.dealAmount / this.duration;
+            var estIn = perday * this.day;
+
+            var result = '';
+            if (this.dealIn - estIn >= 0) {
+                // Okay
+                result = 'Okay';
+            } else {
+                // Missing In
+                result = 'Overdue: RM ' + (estIn - this.dealIn);
+            }
+            return result;
+        }
+    });
+
+
+</script>

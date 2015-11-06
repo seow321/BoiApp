@@ -1,0 +1,66 @@
+﻿[
+  {
+    "jobId": "JB0001",
+    "name": "Abu",
+    "nric": "xxxxxxx-xx-xxxx",
+    "add": "penang, lorong ... ",
+    "amount": "RM 20",
+    "color": "blue"
+  },
+  {
+    "jobId": "JB0002",
+    "name": "Lanny",
+    "nric": "xxxxxxx-xx-xxxx",
+    "add": "penang, lorong ... ",
+    "amount": "RM 20",
+    "color": "blue"
+  },
+  {
+    "jobId": "JB0003",
+    "name": "Uncle Chen",
+    "nric": "xxxxxxx-xx-xxxx",
+    "add": "penang, lorong ... ",
+    "amount": "RM 20",
+    "color": "blue"
+  },
+  {
+    "jobId": "JB0004",
+    "name": "Encik Ralam",
+    "nric": "xxxxxxx-xx-xxxx",
+    "add": "penang, lorong ... ",
+    "amount": "RM 20",
+    "color": "blue"
+  },
+  {
+    "jobId": "JB0005",
+    "name": "Aunty Lim",
+    "nric": "xxxxxxx-xx-xxxx",
+    "add": "penang, lorong ... ",
+    "amount": "RM 20",
+    "color": "blue"
+  },
+  {
+    "jobId": "JB0006",
+    "name": "Antony",
+    "nric": "xxxxxxx-xx-xxxx",
+    "add": "penang, lorong ... ",
+    "amount": "RM 20",
+    "color": "blue"
+  },
+  {
+    "jobId": "JB0007",
+    "name": "Eric Boo",
+    "nric": "xxxxxxx-xx-xxxx",
+    "add": "penang, lorong ... ",
+    "amount": "RM 20",
+    "color": "blue"
+  },
+  {
+    "jobId": "JB0008",
+    "name": "Tan Coo",
+    "nric": "xxxxxxx-xx-xxxx",
+    "add": "penang, lorong ... ",
+    "amount": "RM 40",
+    "color": "orange"
+  }
+]

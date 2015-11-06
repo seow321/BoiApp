@@ -1,21 +1,21 @@
 ﻿<!-- Prepare a Dom with size (width and height) for ECharts -->
 
-<paper-card class="col-xs-12 " style="height:100%;overflow:hidden;display:inline-flex" elevation="3">
+<paper-card class="fit" style="height:100%;overflow:hidden;" elevation="3">
     
     <paper-header-panel class="col-xs-12" style="height:100%;position:relative;">
         <paper-toolbar>
             <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
             <paper-item class="flex" style="padding:0px;">
                 <paper-item-body two-line>
-                    <div>Home</div>
+                    <div>Dashboard</div>
                     <div secondary>
-                        Dashboard
+                        Flow Summary
                     </div>
                 </paper-item-body>
             </paper-item>
         </paper-toolbar>
-        <div style="height:100%;position:relative;">
-            <div id="dashboard" style="position:relative;height:400px;"></div> 
+        <div class="fit">
+            <div id="dashboard" style="position:relative;height:100%;width:100%;"></div> 
         </div>
         
 

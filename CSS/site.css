@@ -14,7 +14,10 @@ paper-card[rel="noti"] {
         right: -256px;
     }
 
-
+    paper-toast{
+        right:12px;
+        left:auto;
+    }
 ::-webkit-scrollbar {
     width: 6px !important;
 }

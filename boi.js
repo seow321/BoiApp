@@ -9,6 +9,7 @@ var boiApp = angular.module("boiApp", [
 boiApp.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
     $ocLazyLoadProvider.config({
         // global configs go here
+        debug: true
     });
 }]);
 
@@ -17,7 +18,8 @@ boiApp.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
 boiApp.factory('settings', ['$rootScope', function ($rootScope) {
     // supported languages
     var settings = {
-        loading: false
+        loading: false,
+        init: false
     };
 
     $rootScope.settings = settings;
@@ -67,10 +69,10 @@ boiApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,
     $stateProvider
 
         // Default
-        .state('home', {
+        .state('dashboard', {
             url: "/",
             templateUrl: "Views/Home.html",
-            data: { pageTitle: 'Index' },
+            data: { pageTitle: 'Dashboard' },
             controller: "HomeController",
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -138,6 +140,42 @@ boiApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,
             }]
         }
     })
+
+        .state('Job-List', {
+            url: "/Job",
+            templateUrl: "Views/Job/Index.html",
+            data: { pageTitle: 'Job List' },
+            controller: "JobController",
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name: 'boiApp',
+                        files: [
+
+                            'Controllers/Job/JobController.js',
+                        ]
+                    });
+                }]
+            }
+        })
+
+           .state('My-Deal-List', {
+               url: "/MyDeal",
+               templateUrl: "Views/MyDeal/Index.html",
+               data: { pageTitle: 'My Deals' },
+               controller: "MyDealController",
+               resolve: {
+                   deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                       return $ocLazyLoad.load({
+                           name: 'boiApp',
+                           files: [
+
+                               'Controllers/MyDeal/MyDealController.js',
+                           ]
+                       });
+                   }]
+               }
+           })
 
     .state('Tests-Index', {
         url: "/Tests",

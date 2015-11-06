@@ -1,0 +1,102 @@
+﻿<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-item/paper-icon-item.html">
+<link rel="import" href="../../bower_components/paper-item/all-imports.html">
+<link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+
+<dom-module id="job-info">
+    <style>
+        :host paper-icon-item {
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .avatar {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #ccc;
+        }
+
+        :host .avatar {
+            cursor: pointer;
+        }
+
+        .blue {
+            background-color: var(--paper-light-blue-300);
+        }
+
+        .red {
+            background-color: var(--paper-red-300);
+        }
+
+        .orange {
+            background-color: var(--paper-amber-300);
+        }
+
+        .green {
+            background-color: var(--paper-green-300);
+        }
+    </style>
+    <template>
+        <paper-icon-item>
+            <!--<div class$="avatar [[color]]" onclick="successToast()" item-icon></div>-->
+            <paper-icon-button icon="" alt="Collect Success" class$="avatar [[color]]" on-tap="toggleMore" item-icon></paper-icon-button>
+            <template is='dom-if' if="{{!more}}">
+                <paper-item-body two-line>
+                    <div><span>{{name}}</span></div>
+                    <div secondary style="color:gray">{{amount}}</div>
+                </paper-item-body>
+            </template>
+            <template is='dom-if' if="{{more}}">
+                <paper-item-body two-line>
+                    <div><span>{{nric}}</span></div>
+                    <div secondary style="color:gray">{{add}}</div>
+                </paper-item-body>
+            </template>
+            <paper-icon-button icon="check" alt="Collect Success" class="success" on-tap="successToast"></paper-icon-button>
+            <paper-icon-button icon="close" alt="Collect Unsuccess" class="error" on-tap="unsuccessToast"></paper-icon-button>
+        </paper-icon-item>
+    </template>
+</dom-module>
+
+<script>
+
+    Polymer({
+
+        is: 'job-info',
+
+        properties: {
+            color: {
+                type: String,
+                notify: true
+            },
+            name: {
+                type: String,
+                notify: true
+            }
+        },
+        ready: function () {
+            this.more = false;
+        },
+        toggleMore: function () {
+            return (this.more = !this.more);
+        },
+        successToast: function () {
+            var myToast = document.querySelector('#toast1');
+            if (myToast != undefined) {
+                myToast.text = "Collect Success.";
+                myToast.show();
+            }
+        },
+        unsuccessToast: function () {
+            var myToast = document.querySelector('#toast2');
+            if (myToast != undefined) {
+                myToast.text = "Collect Not Success.";
+                myToast.show();
+            }
+        }
+    });
+
+
+</script>

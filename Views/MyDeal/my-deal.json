@@ -1,0 +1,84 @@
+﻿[
+  {
+    "dealId": "JB0004",
+    "name": "Encik Ralam",
+    "amount": "1000",
+    "in": "30",
+    "out": "600",
+    "day": "50",
+    "duration": "50",
+    "color": "red"
+  },
+  {
+    "dealId": "JB0005",
+    "name": "Aunty Lim",
+    "amount": "1000",
+    "in": "10",
+    "out": "600",
+    "day": "30",
+    "duration": "50",
+    "color": "red"
+  },
+  {
+    "dealId": "JB0008",
+    "name": "Tan Coo",
+    "amount": "1000",
+    "in": "400",
+    "out": "600",
+    "day": "22",
+    "duration": "50",
+    "color": "orange"
+  },
+  
+  {
+    "dealId": "JB0002",
+    "name": "Lanny",
+    "amount": "1000",
+    "in": "760",
+    "out": "600",
+    "day": "38",
+    "duration": "50",
+    "color": "blue"
+  },
+  {
+    "dealId": "JB0003",
+    "name": "Uncle Chen",
+    "amount": "1000",
+    "in": "760",
+    "out": "600",
+    "day": "38",
+    "duration": "50",
+    "color": "blue"
+  },
+  
+  {
+    "dealId": "JB0006",
+    "name": "Antony",
+    "amount": "1000",
+    "in": "760",
+    "out": "600",
+    "day": "38",
+    "duration": "50",
+    "color": "blue"
+  },
+  {
+    "dealId": "JB0007",
+    "name": "Eric Boo",
+    "amount": "1000",
+    "in": "1000",
+    "out": "600",
+    "day": "50",
+    "duration": "50",
+    "color": "green"
+  },
+  {
+    "dealId": "DL0001",
+    "name": "Abu",
+    "amount": "1000",
+    "in": "1000",
+    "out": "600",
+    "day": "50",
+    "duration": "50",
+    "color": "green"
+  }
+]
