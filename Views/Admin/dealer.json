@@ -1,14 +1,14 @@
 ﻿[
     {
         "dealerId": "DL0001",
-        "name": "Vic",
+        "name": "seng",
 		"profile": 
 			[{		 "dateCreated": "12Jan2012",
 					 "companyName": "L & C",
 					 "status": "activate",
 					 "lastActivity": "add new agent"
 		}],
-        "deals": 
+        "deal": 
             [{
                 "totalDeal": 13,
                 "completedDeal": 10,
@@ -20,14 +20,14 @@
    
     {
         "dealerId": "DL0002",
-        "name": "Mr Bak",
+        "name": "ah wong",
 		"profile": 
 			[{		 "dateCreated": "12Feb2012",
 					 "companyName": "Sport Com",
 					 "status": "activate",
 					 "lastActivity": "add new agent"
 		}],
-        "deals": 
+        "deal": 
             [{
                 "totalDeal": 13,
                 "completedDeal": 10,
@@ -39,14 +39,14 @@
    
     {
         "dealerId": "DL0003",
-        "name": "Mr Boo",
+        "name": "sing sing",
 		"profile": 
 			[{		 "dateCreated": "13March2012",
 					 "companyName": "DC ",
 					 "status": "activate",
 					 "lastActivity": "add new agent"
 		}],
-        "deals": 
+        "deal": 
             [{
                 "totalDeal": 15,
                 "completedDeal": 9,

@@ -1,16 +1,16 @@
 ﻿<link rel="import" href="../../bower_components/paper-card/paper-card.html">
 
-<dom-module id="dealer-profile-dealinfo">
+<dom-module id="dealer-deal-details">
 
     <template>
 
         <paper-item>
             <paper-item-body >
+        
                 <div style="color:gray;display:flexbox;justify-content:space-between">
-                    <span>Date Created: <b>{{dateCreated}}</b></span><br />
-                    <span>Company Name: <b>{{companyName}}</b></span><br />
-                    <span>Status: <b>{{status}}</b></span><br />
-                    <span>Last Activity: <b>{{lastActivity}}</b></span>
+                    <span>Total Deal: <b>{{totalDeal}}</b></span><br />
+                    <span>Completed Deal: <b>{{completedDeal}}</b></span><br />
+                    <span>Deal Pending: <b>{{dealPending}}</b></span><br />
                 </div>
                 </paper-item-body>
 </paper-item>
@@ -22,30 +22,25 @@
 
     Polymer({
 
-        is: 'dealer-profile-dealinfo',
+        is: 'dealer-deal-details',
 
         properties: {
 
-            dateCreated: {
-                type: String,
-                notify: true
-            },
-            
-            companyName: {
-               type: String,
-               notify: true
-            },
-
-            status: {
+            totalDeal: {
                 type: String,
                 notify: true
             },
 
-            lastActivity: {
+            completedDeal: {
+                type: String,
+                notify: true
+            },
+
+            dealPending: {
                 type: String,
                 notify: true
             }
-         
+
         }
     });
     

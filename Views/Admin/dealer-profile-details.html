@@ -1,0 +1,58 @@
+﻿<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+
+<dom-module id="dealer-profile-details">
+
+    <template>
+
+        <paper-item>
+            <paper-item-body >
+                <div style="color:gray;display:flexbox;justify-content:space-between">
+                    <span>Date Created: <b>{{dateCreated}}</b></span><br />
+                    <span>Company Name: <b>{{companyName}}</b></span><br />
+                    <span>Status: <b>{{status}}</b></span><br />
+                    <span>Last Activity: <b>{{lastActivity}}</b></span>
+                  
+                  
+                </div>
+
+                </paper-item-body>
+</paper-item>
+
+</template>
+</dom-module>
+
+<script>
+
+    Polymer({
+
+        is: 'dealer-profile-details',
+
+        properties: {
+
+            dateCreated: {
+                type: String,
+                notify: true
+            },
+            
+            companyName: {
+               type: String,
+               notify: true
+            },
+
+            status: {
+                type: String,
+                notify: true
+            },
+
+            lastActivity: {
+                type: String,
+                notify: true
+            }
+
+
+
+        }
+    });
+    
+
+</script>

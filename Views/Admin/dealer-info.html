@@ -1,16 +1,34 @@
 ﻿<link rel="import" href="../../bower_components/paper-card/paper-card.html">
-
+<link rel="import" href="../../bower_components/paper-item/paper-icon-item.html">
+<link rel="import" href="../../bower_components/paper-item/all-imports.html">
+<link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
 <dom-module id="dealer-info">
+    <style>
+        :host paper-icon-item {
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        :host .avatar {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color:var(--paper-light-blue-300);
+        }
+
+
+    </style>
 
     <template>
-     
-        <paper-item>
+        <paper-icon-item>
+            <paper-icon-button icon="" alt="More Details" class="avatar"  item-icon></paper-icon-button>
             <paper-item-body two-line>
                 <div><span>{{name}}</span></div>
                 <div secondary style="color:gray">dealer profile</div>
             </paper-item-body>
-        </paper-item>
-    </template>
+        </paper-icon-item>
+</template>
 </dom-module>
 
 <script>
