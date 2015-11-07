@@ -1,15 +1,29 @@
 ﻿<link rel="import" href="../../bower_components/paper-card/paper-card.html">
 
 <dom-module id="agent-info">
+    <style>
+        :host paper-icon-item {
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        :host .avatar {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: rgba(140,140,140,.6);
+        }
+    </style>
 
     <template>
-     
-        <paper-item>
+        <paper-icon-item>
+            <paper-icon-button icon="" alt="More Details" class="avatar" item-icon></paper-icon-button>
             <paper-item-body two-line>
                 <div><span>{{name}}</span></div>
                 <div secondary style="color:gray">{{agentId}}</div>
             </paper-item-body>
-        </paper-item>
+        </paper-icon-item>
     </template>
 </dom-module>
 
