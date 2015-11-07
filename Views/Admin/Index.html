@@ -30,7 +30,7 @@
         </paper-toolbar>
         <div style="position:relative;">
             <dealer-info ng-repeat="dealer in dealers"
-                         name="{{dealer.name}}" bind-polymer ng-click="select(dealer)"></dealer-info>
+                         name="{{dealer.name}}"dealer-id="{{dealer.dealerId}}" bind-polymer ng-click="select(dealer)"></dealer-info>
             </div>
 </paper-header-panel>
 
