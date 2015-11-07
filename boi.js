@@ -259,10 +259,12 @@ boiApp.directive('bindPolymer', ['$parse', function ($parse) {
                         });
                     });
                 });
+                element[0].$scope = scope;
             };
         }
     };
 }]);
+
 
 /* Init global settings and run the app */
 boiApp.run(["$rootScope", "settings", "$state", function ($rootScope, settings, $state) {

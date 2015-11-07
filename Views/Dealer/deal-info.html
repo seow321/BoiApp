@@ -4,7 +4,7 @@
 
     <template>
 
-        <paper-item>
+        <paper-item on-tap="dealDelete">
             <paper-item-body two-line>
                 <div><span>{{dealId}}</span></div>
                 <div secondary style="color:gray;display:inline-flex;justify-content:space-between">
@@ -41,6 +41,12 @@
                 type: String,
                 notify: true
             }
+        },
+        ready:function(){
+            console.log(this.dealId);
+        },
+        dealDelete: function () {
+            this.$scope.delete(this);
         }
     });
 

@@ -30,9 +30,9 @@
             <paper-icon-button icon="arrow-back" ng-click="search = false;" ng-show="search"></paper-icon-button>
             <paper-input label="Search" class="flex" type="search" ng-show="search" no-label-float style="margin-left:18px;"></paper-input>
         </paper-toolbar>
-        <div style="position:relative;">
+        <div style="position:relative;" >
             <agent-info ng-repeat="agent in agents"
-                        name="{{agent.name}}" agent-id="{{agent.agentId}}" bind-polymer ng-click="select(agent)"></agent-info>
+                        name="{{agent.name}}" agent-id="{{agent.agentId}}" bind-polymer ng-click="select(agent)" ></agent-info>
 
 
         </div>
@@ -63,10 +63,13 @@
             </paper-card>
             <paper-card heading="Recent Deals" style="width:80%; margin-left:10%;margin-right:10%;margin-top:28px;margin-bottom:28px;">
                 <deal-info ng-repeat="deal in selected.deals"
+                           deal-index="{{$index}}"
                            deal-id="{{deal.dealId}}"
                            deal-amount="{{deal.amount}}"
                            deal-out="{{deal.out}}"
-                           deal-in="{{deal.in}}"></deal-info>
+                           
+                           bind-polymer
+                           ></deal-info>
             </paper-card>
             <paper-button primary raised style="width:80%; margin-left:10%;margin-right:10%;margin-top:28px;margin-bottom:28px;">Edit Agent</paper-button>
             <paper-button error raised style="width:80%; margin-left:10%;margin-right:10%;margin-top:28px;margin-bottom:28px;">Deactivate Agent</paper-button>
