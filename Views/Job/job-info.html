@@ -9,11 +9,11 @@
             border-bottom: 1px solid #e5e5e5;
         }
 
-        .avatar {
+        :host .avatar {
             display: inline-block;
-            width: 40px;
+            width: 10px;
             height: 40px;
-            border-radius: 50%;
+            
             overflow: hidden;
             background: #ccc;
         }
@@ -39,9 +39,9 @@
         }
     </style>
     <template>
-        <paper-icon-item>
+        <paper-icon-item on-tap="toggleMore">
             <!--<div class$="avatar [[color]]" onclick="successToast()" item-icon></div>-->
-            <paper-icon-button icon="" alt="Collect Success" class$="avatar [[color]]" on-tap="toggleMore" item-icon></paper-icon-button>
+            <paper-icon-button icon="" alt="Collect Success" class$="avatar [[color]]" item-icon></paper-icon-button>
             <template is='dom-if' if="{{!more}}">
                 <paper-item-body two-line>
                     <div><span>{{name}}</span></div>

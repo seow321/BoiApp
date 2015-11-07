@@ -9,49 +9,49 @@
             border-bottom: 1px solid #e5e5e5;
         }
 
-        .avatar {
+        :host .avatar {
             display: inline-block;
-            width: 40px;
+            width: 10px;
             height: 40px;
-            border-radius: 50%;
+           
             overflow: hidden;
             background: #ccc;
         }
 
         .avatar.blue {
-            background-color: var(--paper-light-blue-300);
+            background-color: #1e88e5;
         }
 
         .avatar.red {
-            background-color: var(--paper-red-300);
+            background-color: #ef5350;
         }
 
         .avatar.orange {
-            background-color: darkorange;
+            background-color: #ffb74d;
         }
 
         .avatar.green {
-            background-color: var(--paper-green-300);
+            background-color: #9dc56e;
         }
         .blue {
-            color: var(--paper-light-blue-300);
+            color:  #1e88e5;
         }
 
         .red {
-            color: var(--paper-red-300);
+            color:#ef5350;
         }
 
         .orange {
-            color:darkorange;
+            color:#ffb74d;
         }
 
         .green {
-            color: var(--paper-green-300);
+            color: #9dc56e;
         }
     </style>
     <template>
-        <paper-icon-item>
-            <paper-icon-button icon="" alt="More Details" class$="avatar [[color]]" on-tap="toggleMore" item-icon></paper-icon-button>
+        <paper-icon-item on-tap="toggleMore">
+            <paper-icon-button icon="" alt="More Details" class$="avatar [[color]]" item-icon></paper-icon-button>
             <template is='dom-if' if="{{!more}}">
                 <paper-item-body two-line>
                     <div><span>{{name}}</span></div>
@@ -69,8 +69,8 @@
                     </div>
                 </paper-item-body>
             </template>
-            
-            
+
+
         </paper-icon-item>
     </template>
 </dom-module>
